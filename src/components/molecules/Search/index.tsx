@@ -1,5 +1,4 @@
 import { BreedInterface } from "@/app/interfaces/breed";
-import { CloseIcon } from "@/components/atoms/CloseIcon";
 import { ChangeEvent } from "react";
 
 type Props = {
