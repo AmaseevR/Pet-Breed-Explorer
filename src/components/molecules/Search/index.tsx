@@ -1,4 +1,5 @@
 import { BreedInterface } from "@/app/interfaces/breed";
+import { CloseIcon } from "@/components/atoms/CloseIcon";
 import { ChangeEvent } from "react";
 
 type Props = {
@@ -19,7 +20,7 @@ export const Search = ({
   onSuggestionClick,
 }: Props) => {
   return (
-    <div className="flex justify-center mt-10 relative">
+    <div className="flex justify-left mt-10 relative">
       <input
         type="text"
         value={searchQuery}
@@ -27,8 +28,9 @@ export const Search = ({
         onFocus={() => onShowSuggestions(true)}
         onBlur={() => setTimeout(() => onShowSuggestions(false), 100)}
         placeholder="Search breeds..."
-        className="mb-4 p-3 border border-gray-300 rounded-lg w-full max-w-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="mb-4 p-3 border border-gray-300 rounded-lg w-full max-w-lg shadow-sm outline-none"
       />
+
       {showSuggestions && searchQuery && (
         <div className="absolute top-full mt-1 w-full max-w-lg bg-white border border-gray-200 rounded-lg shadow-lg z-10">
           <ul>

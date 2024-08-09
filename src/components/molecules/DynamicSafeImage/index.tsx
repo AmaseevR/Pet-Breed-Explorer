@@ -27,7 +27,7 @@ export const DynamicSafeImage = ({ breed, species }: Props) => {
     <Image
       src={imgSrc}
       alt={breed?.name}
-      className="mx-auto w-auto h-auto max-h-[60vh] object-cover"
+      className="h-[400px] w-[400px] object-cover rounded-tl-[50%] rounded-tr-[50%] rounded-br-[50%] border-4 border-n-1"
       width={500}
       height={500}
       onLoadingComplete={(result) => {

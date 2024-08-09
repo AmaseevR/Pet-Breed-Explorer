@@ -19,12 +19,7 @@ export default function HomePage() {
     handleSuggestionClick,
   } = useGetBreedList();
 
-  if (isLoadingDogs || isLoadingCats)
-    return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-100 text-gray-800">
-        <Loader />
-      </div>
-    );
+  if (isLoadingDogs || isLoadingCats) return <Loader />;
 
   return (
     <div className="container mx-auto px-4">

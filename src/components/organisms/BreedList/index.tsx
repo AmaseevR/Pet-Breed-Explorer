@@ -1,6 +1,6 @@
 import { BreedInterface } from "@/app/interfaces/breed";
-import { SafeImage } from "@/components/molecules/SafeImage";
-import Link from "next/link";
+import { BreedItem } from "@/components/molecules/BreedItem";
+import { Fragment } from "react";
 
 type Props = {
   filteredDogBreeds: BreedInterface[];
@@ -9,36 +9,17 @@ type Props = {
 
 export const BreedList = ({ filteredDogBreeds, filteredCatBreeds }: Props) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
       {filteredDogBreeds?.slice(0, 15).map((breed: BreedInterface) => (
-        <Link href={`/breed/dog/${breed.id}`} key={breed.id}>
-          <div className="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out">
-            <SafeImage
-              breed={breed}
-              apiBaseUrl="https://cdn2.thedogapi.com/images"
-            />
-            <div className="p-4">
-              <h3 className="text-lg font-semibold text-gray-800">
-                {breed.name}
-              </h3>
-            </div>
-          </div>
-        </Link>
+        <Fragment key={breed.id}>
+          <BreedItem redirect={`/breed/dog/${breed.id}`} breed={breed} />
+        </Fragment>
       ))}
+
       {filteredCatBreeds?.slice(0, 15).map((breed: BreedInterface) => (
-        <Link href={`/breed/cat/${breed.id}`} key={breed.id}>
-          <div className="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out">
-            <SafeImage
-              breed={breed}
-              apiBaseUrl="https://cdn2.thecatapi.com/images"
-            />
-            <div className="p-4">
-              <h3 className="text-lg font-semibold text-gray-800">
-                {breed.name}
-              </h3>
-            </div>
-          </div>
-        </Link>
+        <Fragment key={breed.id}>
+          <BreedItem redirect={`/breed/cat/${breed.id}`} breed={breed} />
+        </Fragment>
       ))}
     </div>
   );
